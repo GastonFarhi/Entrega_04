@@ -1,0 +1,10 @@
+{% extends "A_main/index.html" %}
+{% block title %}| Editar Perfil {% endblock title %}
+{% block content %}
+    <h1 class="titulo_user">Editar Datos del Perfil</h1>
+    <form action="{% url 'user:editar_perfil' %}" emthod="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ formulario }}
+        <input type="submit" value="Actualizar">
+    </form>
+{% endblock content %}

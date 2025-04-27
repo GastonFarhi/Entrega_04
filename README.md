@@ -11,4 +11,7 @@
 9. Crear los modelos y los formularios en A_usuario y hacer las migraciones.
 10. Crear las vistas y las urls de A_usuario y conectar a URLS del proyecto.
 11. Segundo Commit.
-12. 
+12. Crear los modelos y los formularios en A_app y hacer las migraciones.
+13. Crear las vistas y las urls de A_app y conectar a URLS del proyecto.
+14. Construir todos los templates de A_app y probar el funcionamiento de cada uno.
+15. Tercer Commit.

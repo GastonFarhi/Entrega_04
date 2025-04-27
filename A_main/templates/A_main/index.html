@@ -2,20 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Entrega {% block title %} {% endblock title %} </title>
+    <title>Pag_404 {% block title %} {% endblock title %} </title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style_index.css' %}" />
 </head>
 <body>
     <header>
-        <h1 class="titulo_pag">
-            HELLO WORLD!
-        </h1>
         <nav class="producto">
             <a href="{% url 'contenido:disco' %}">Discos</a>
             <a href="{% url 'contenido:libro' %}">Libros</a>
             <a href="{% url 'contenido:remera' %}">Remeras</a>
         </nav>
+        <h1 class="titulo_pag">HELLO WORLD!</h1>
         <nav class="cuenta">
             <a href="{% url 'user:login' %}">LogIn</a>
             <a href="{% url 'user:registro' %}">Registrarse</a>
