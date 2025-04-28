@@ -10,7 +10,10 @@
             </h1>
             {% for shirt_list in lista_remeras %}
                 <li class="lista">
-                    {{shirt_list.disenio}} - {{shirt_list.talle}}</li>
+                    <a href="{% url 'contenido:detalle_remera' shirt_list.id %}">
+                        {{shirt_list.disenio}}
+                    </a>
+                </li>
             {% endfor %}
         </ul>
     </div>

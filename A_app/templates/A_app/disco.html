@@ -14,7 +14,10 @@
             </h1>
             {% for cd_list in lista_discos %}
                 <li class="lista">
-                    {{cd_list.nombre}} - {{cd_list.artista}} - {{cd_list.year}}</li>
+                    <a href="{% url 'contenido:detalle_disco' cd_list.id %}">
+                        {{cd_list.nombre}} - {{cd_list.artista}}
+                    </a>
+                </li>
             {% endfor %}
         </ul>
     </div>

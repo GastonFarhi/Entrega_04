@@ -4,7 +4,7 @@ from django.contrib.auth import login as django_login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import FormularioRegistro, FormularioEdicionPerfil
-from .models import InfoUsuario
+from .models import InfoExtra
 from django.views.generic.detail import DetailView
 
 
@@ -15,7 +15,7 @@ def login(request):
         if formulario.is_valid():
             usuario = formulario.get_user()
             django_login(request, usuario)
-            InfoUsuario.objects.get_or_create(user=usuario)
+            InfoExtra.objects.get_or_create(user=usuario)
             return redirect("main:index")
     else:
         formulario = AuthenticationForm()
@@ -35,32 +35,21 @@ def registro(request):
 
 @login_required
 def editar_perfil(request):
-    info_extra = request.user.info_extra
+    info_extra = request.user.infoextra
     if request.method == "POST":
         formulario = FormularioEdicionPerfil(request.POST, request.FILES, instance=request.user)
         if formulario.is_valid():
-            if formulario.cleaned_data.get("img_perfil"):
-                info_extra.avatar = formulario.cleaned_data.get("img_perfil")
+            if formulario.cleaned_data.get("avatar"):
+                info_extra.avatar = formulario.cleaned_data.get("avatar")
             info_extra.save()
             formulario.save()
             return redirect("main:index")
     else:
-        formulario = FormularioEdicionPerfil()
+        formulario = FormularioEdicionPerfil(initial={'avatar': info_extra.avatar}, instance=request.user)
     return render(request, "A_usuario/editar_perfil.html", {"formulario": formulario})
 
 
 class VistaDatosPerfil(LoginRequiredMixin, DetailView):
-    model = InfoUsuario
+    model = InfoExtra
     template_name = "A_usuario/ver_perfil.html"
     context_object_name = "usuario"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["fecha_nacimiento"] = self.object.fecha_nacimiento
-        context[
-            "img_perfil"] = self.request.user.infousuario.img_perfil.url \
-            if self.request.user.infousuario.img_perfil else "/media/profile_01.jpg"
-        return context
-
-    def get_object(self, queryset=None):
-        return InfoUsuario.objects.get(user=self.request.user)

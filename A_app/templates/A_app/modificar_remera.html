@@ -1,0 +1,14 @@
+{% extends "A_main/index.html" %}
+{% block content %}
+    <div class="contenido">
+        <form class="inter_form" action="{% url 'contenido:modificar_remera' remera.id %}" method="POST">
+            {% csrf_token %}
+            {{form}}
+            <input type="submit" value="Modificar">
+        </form>
+        <form class="inter_form" action="{% url 'contenido:eliminar_remera' remera.id %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Borrar">
+        </form>
+    </div>
+{% endblock content %}

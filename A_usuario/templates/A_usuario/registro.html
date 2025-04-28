@@ -3,7 +3,7 @@
 {% block content %}
     <div class="inter_usuario">
         <h1 class="titulo_user">Registrarse</h1>
-        <form class="inter_usuario_form" action="{% url 'user:registro' %}" method="POST">
+        <form class="inter_form" action="{% url 'user:registro' %}" method="POST">
             {% csrf_token %}
             {{ formulario }}
             <button class="inter_usuario_btn" type="submit">Crear Cuenta</button>

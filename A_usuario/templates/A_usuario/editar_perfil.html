@@ -3,7 +3,7 @@
 {% block content %}
     <div class="inter_usuario">
         <h1 class="titulo_user">Editar Datos del Perfil</h1>
-        <form class="inter_usuario_form" action="{% url 'user:editar_perfil' %}" emthod="POST" enctype="multipart/form-data">
+        <form class="inter_form" action="{% url 'user:editar_perfil' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ formulario }}
             <button class="inter_usuario_btn" type="submit">Actualizar</button>

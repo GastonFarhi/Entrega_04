@@ -1,0 +1,10 @@
+{% extends "A_main/index.html" %}
+{% block content %}
+    <div class="contenido">
+        <h1>{{ libro }}</h1>
+        <p>Título: {{libro.titulo}}</p>
+        <p>Autor: {{libro.autor}}</p>
+        <p>Año: {{libro.year}}</p>
+        <a href="{% url 'contenido:modificar_libro' libro.id %}">Modificar</a>
+    </div>
+{% endblock content %}

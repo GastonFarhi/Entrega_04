@@ -1,0 +1,9 @@
+{% extends "A_main/index.html" %}
+{% block content %}
+    <div class="contenido">
+        <h1>{{ remera }}</h1>
+        <p>Talle: {{remera.talle}}</p>
+        <p>Diseño: {{remera.disenio}}</p>
+        <a href="{% url 'contenido:modificar_remera' remera.id %}">Modificar</a>
+    </div>
+{% endblock content %}

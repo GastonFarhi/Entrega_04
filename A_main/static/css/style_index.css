@@ -72,14 +72,13 @@ main > * {
     background-color: rgba(0, 0, 0, .5);
     padding: 10px;
     overflow: auto;
-    word-wrap: break-word;
 }
 .inter_usuario {
     text-align: center;
     color: white;
     cursor: default;
 }
-.inter_usuario_form input {
+.inter_form input {
     color: white;
     background: transparent;
     cursor: default;
@@ -108,7 +107,9 @@ main > * {
 .perfil_inicio {
     font-size: large;
 }
-
+.naviga {
+    display: inline-flex;
+}
 /* =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*= */
 .disco__buscar_form {
     position: flex;

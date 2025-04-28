@@ -1,0 +1,10 @@
+{% extends "A_main/index.html" %}
+{% block content %}
+    <div class="contenido">
+        <h1>{{ disco }}</h1>
+        <p>Nombre: {{disco.nombre}}</p>
+        <p>Artista: {{disco.artista}}</p>
+        <p>Año: {{disco.year}}</p>
+        <a href="{% url 'contenido:modificar_disco' disco.id %}">Modificar</a>
+    </div>
+{% endblock content %}

@@ -1,8 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import *
 from .forms import *
 
 
@@ -56,3 +55,77 @@ class BusquedaDisco(ListView):
         if buscar:
             return Disco.objects.filter(artista__icontains=buscar)
         return Disco.objects.none()
+
+
+class VistaDetalleDisco(DetailView):
+    model = Disco
+    template_name = "A_app/detalle_disco.html"
+
+
+class VistaDetalleLibro(DetailView):
+    model = Libro
+    template_name = "A_app/detalle_libro.html"
+
+
+class VistaDetalleRemera(DetailView):
+    model = Remera
+    template_name = "A_app/detalle_remera.html"
+
+
+class VistaModificarDisco(LoginRequiredMixin, UpdateView):
+    model = Disco
+    template_name = "A_app/modificar_disco.html"
+    fields = ['nombre', 'artista', 'year']
+    labels = {
+        "nombre": "Nombre:",
+        "artista": "Artista:",
+        "year": "Año:"
+    }
+    success_url = reverse_lazy("contenido:disco")
+    login_url = "user:login"
+
+
+class VistaEliminarDisco(LoginRequiredMixin, DeleteView):
+    model = Disco
+    template_name = "A_app/modificar_disco.html"
+    success_url = reverse_lazy("contenido:disco")
+    login_url = "user:login"
+
+
+class VistaModificarLibro(LoginRequiredMixin, UpdateView):
+    model = Libro
+    template_name = "A_app/modificar_libro.html"
+    fields = ['titulo', 'autor', 'year']
+    labels = {
+        "titulo": "Título:",
+        "autor": "Autor:",
+        "year": "Año:"
+    }
+    success_url = reverse_lazy("contenido:libro")
+    login_url = "user:login"
+
+
+class VistaEliminarLibro(LoginRequiredMixin, DeleteView):
+    model = Libro
+    template_name = "A_app/modificar_libro.html"
+    success_url = reverse_lazy("contenido:libro")
+    login_url = "user:login"
+
+
+class VistaModificarRemera(LoginRequiredMixin, UpdateView):
+    model = Remera
+    template_name = "A_app/modificar_remera.html"
+    fields = ['talle', 'disenio']
+    labels = {
+        "talle": "Talle:",
+        "disenio": "Diseño:"
+    }
+    success_url = reverse_lazy("contenido:remera")
+    login_url = "user:login"
+
+
+class VistaEliminarRemera(LoginRequiredMixin, DeleteView):
+    model = Remera
+    template_name = "A_app/modificar_remera.html"
+    success_url = reverse_lazy("contenido:remera")
+    login_url = "user:login"

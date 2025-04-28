@@ -3,7 +3,7 @@
 {% block content %}
     <div class="inter_usuario">
         <h1 class="titulo_user">LogIn</h1>
-        <form class="inter_usuario_form" action="{% url 'user:login' %}" method="POST">
+        <form class="inter_form" action="{% url 'user:login' %}" method="POST">
             {% csrf_token %}
             {{ formulario }}
             <button class="inter_usuario_btn" type="submit">Ingresar</button>

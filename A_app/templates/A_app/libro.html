@@ -10,7 +10,10 @@
             </h1>
             {% for libro_list in lista_libros %}
                 <li class="lista">
-                    {{libro_list.titulo}} - {{libro_list.autor}} - {{libro_list.year}}</li>
+                    <a href="{% url 'contenido:detalle_libro' libro_list.id %}">
+                        {{libro_list.titulo}} - {{libro_list.autor}}
+                    </a>
+                </li>
             {% endfor %}
         </ul>
     </div>
