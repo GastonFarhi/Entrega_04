@@ -8,16 +8,38 @@
 </head>
 <body>
     <header>
+        <h1 class="titulo_pag">
+            <a href="{% url 'main:index' %}">Hello World!</a>
+        </h1>
         <nav class="producto">
             <a href="{% url 'contenido:disco' %}">Discos</a>
             <a href="{% url 'contenido:libro' %}">Libros</a>
             <a href="{% url 'contenido:remera' %}">Remeras</a>
         </nav>
-        <h1 class="titulo_pag">HELLO WORLD!</h1>
-        <nav class="cuenta">
-            <a href="{% url 'user:login' %}">LogIn</a>
-            <a href="{% url 'user:registro' %}">Registrarse</a>
-        </nav>
+        {% if request.user.is_authenticated %}
+            <nav class="cuenta">
+
+                <a class="perfil_inicio" href="{% url 'user:ver_perfil' %}">
+                    {% if request.user.inforextra.img_perfil %}
+                        <img class="profile_img" src={{ request.user.infoextra.avatar.url }} alt="avatar">
+                    {% else %}
+                        <img class="profile_img" src="media/img_perfil/profile_01.png" alt="avatar">
+                    {% endif %}
+                    
+                    {% if request.user.username != "admin" %}
+                        ¡Hola, {{ request.user.first_name.capitalize }}!
+                    {% else %}
+                        ¡Hola, Admin!
+                    {% endif %}
+                </a>
+            </nav>
+        {% else %}    
+            <nav class="cuenta">
+                <a href="{% url 'user:login' %}">LogIn</a>
+                <a href="{% url 'user:registro' %}">Registrarse</a>
+            </nav>
+        {% endif %}
+
     </header>
     <main>
         {% block content %}

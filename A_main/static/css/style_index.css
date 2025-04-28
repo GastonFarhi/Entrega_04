@@ -1,35 +1,158 @@
-body {
-    background-color: white;
+* {
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-/**/
+body {
+    background: url("images/fondo_03.jpg");
+    background-repeat: no-repeat;
+    background-size: cover auto;
+    background-position: center top;
+    /*background-color: pink;*/
+}
+footer {
+    cursor: default;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, .2);
+}
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 100px;
-    background: rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: space-between;
+    padding: 10px 10px;
+    background-color: rgba(0, 0, 0, .2);
     align-items: center;
-    z-index: 99;
+    cursor: default;
 }
-nav a {
-    position: relative;
-    font-size: 1.1em;
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    margin-left: 40px;
+.profile_img {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.titulo_pag, .producto, .cuenta {
+    display: inline-block;
 }
 .titulo_pag {
+    margin-left: 15%;
+}
+nav {
+    font-size: 2em;
+}
+.cuenta {
+    float: inline-end;
+}
+.producto {
+    float: inline-start;
+}
+a {
     cursor: default;
-    font-size: 1.5em;
-    text-shadow: -1px 1px 0 black;
     text-decoration: none;
     user-select: none;
-    font-family: 'Times New Roman', Times, serif;
+    color: rosybrown;
 }
 main {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 82vh;
+}
+main > * {
+    width: auto;
+    height: auto;
+    margin: 10px;
+    background-color: rgba(0, 0, 0, .5);
+    padding: 10px;
+    overflow: auto;
+    word-wrap: break-word;
+}
+.inter_usuario {
+    text-align: center;
+    color: white;
+    cursor: default;
+}
+.inter_usuario_form input {
+    color: white;
+    background: transparent;
+    cursor: default;
+    text-align: center;
+    border: none;
+    border-bottom: 2px solid white;
+    outline: none;
+}
+.inter_usuario_btn {
+    outline: none;
+    border: none;
+    color: white;
+    background: transparent;
+    cursor: default;
+    margin: 10px;
+    font-size: larger;
+}
+.btn_logout {
+    outline: none;
+    border: none;
+    background: transparent;
+    cursor: default;
+    color: white;
+    font-size: large;
+}
+.perfil_inicio {
+    font-size: large;
+}
 
+/* =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*= */
+.disco__buscar_form {
+    position: flex;
+    text-align: center; 
+}
+.disco_input {
+    cursor: default;
+    color: white;
+    font-weight: bolder;
+    padding: 8px;
+    width: 300px;
+    text-align: center;
+    border: none;
+    background: rgba(100, 100, 100, .2);
+    border-bottom: 2px solid white;
+    outline: none;
+}
+.disco_input:focus::placeholder {
+    color: transparent;
+}
+.disco_input::placeholder {
+    color: white; 
+}
+.disco_buscar_btn {
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+    cursor: default;
+    background-color: rgba(100, 100, 100, .2);
+    padding: 8px 15px;
+}
+
+/* =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*= */
+.contenido {
+    color: white;
+    min-height: 100px;
+    max-height: 600px;
+    width: 500px;
+    overflow: auto;
+}
+.principal {
+    text-align: center;
+    color: white;
+    list-style-type: none; 
 }

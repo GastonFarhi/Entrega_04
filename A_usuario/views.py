@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as django_login
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import FormularioRegistro, FormularioEdicionPerfil
 from .models import InfoUsuario
 from django.views.generic.detail import DetailView
@@ -48,7 +49,18 @@ def editar_perfil(request):
     return render(request, "A_usuario/editar_perfil.html", {"formulario": formulario})
 
 
-@login_required
-class VistaDatosPerfil(DetailView):
+class VistaDatosPerfil(LoginRequiredMixin, DetailView):
     model = InfoUsuario
     template_name = "A_usuario/ver_perfil.html"
+    context_object_name = "usuario"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["fecha_nacimiento"] = self.object.fecha_nacimiento
+        context[
+            "img_perfil"] = self.request.user.infousuario.img_perfil.url \
+            if self.request.user.infousuario.img_perfil else "/media/profile_01.jpg"
+        return context
+
+    def get_object(self, queryset=None):
+        return InfoUsuario.objects.get(user=self.request.user)

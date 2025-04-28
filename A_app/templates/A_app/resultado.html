@@ -1,0 +1,30 @@
+{% extends 'A_Main/index.html' %}
+{% block title %}| Discos {% endblock %}
+{%block content %}
+    <div class="contenido">
+        {% if resultados %}
+            <ul style="text-align: center">
+            <h2
+                style="
+                text-align: center;
+                padding-top: 50px;
+                padding-bottom: 10px;
+                text-decoration-line: underline;
+                "
+            >
+                Resultados de Busqueda
+            </h2>
+                <ul>
+                    {% for variable in resultados %}
+                    <li>{{ variable.nombre }} - {{ variable.year }}</li>
+                    {% endfor %}
+                </ul>
+            </ul>
+        {% else %}
+            <div class="contenido">
+                <h2 style="text-align: center; margin-top: 50px">Resultados de Busqueda</h2>
+                <h3 style="text-align: center; margin-top: 50px">Sin resultados.</h3>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

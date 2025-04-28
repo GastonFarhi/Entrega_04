@@ -9,5 +9,5 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(template_name="A_usuario/logout.html"), name="logout"),
     path('registro/', registro, name="registro"),
     path('perfil/editar/', editar_perfil, name="editar_perfil"),
-    path('perfil/ver/', VistaDatosPerfil, name="ver_perfil"),
+    path('perfil/ver/', VistaDatosPerfil.as_view(template_name="A_usuario/ver_perfil.html"), name="ver_perfil"),
 ]

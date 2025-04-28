@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
-# from models import *
+from .models import *
 from .forms import *
 
 
@@ -44,3 +44,15 @@ class RemeraNueva(LoginRequiredMixin, CreateView):
     template_name = "A_app/submit_remera.html"
     success_url = reverse_lazy("contenido:remera")
     login_url = "user:login"
+
+
+class BusquedaDisco(ListView):
+    model = Disco
+    template_name = "A_app/resultado.html"
+    context_object_name = "resultados"
+
+    def get_queryset(self):
+        buscar = self.request.GET.get("q", "")
+        if buscar:
+            return Disco.objects.filter(artista__icontains=buscar)
+        return Disco.objects.none()

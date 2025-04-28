@@ -9,5 +9,6 @@ urlpatterns = [
     path('remeras/', vista_remera, name="remera"),
     path('discos/nuevo/', NuevoDisco.as_view(), name="nuevo_disco"),
     path('libros/nuevo/', LibroNuevo.as_view(), name="libro_nuevo"),
-    path('remeras/nueva/', RemeraNueva.as_view(), name="remera_nueva")
+    path('remeras/nueva/', RemeraNueva.as_view(), name="remera_nueva"),
+    path('discos/resultados/', BusquedaDisco.as_view(), name="resultado")
 ]

@@ -1,0 +1,12 @@
+{% extends 'A_Main/index.html' %}
+{% block title %}| Nueva Remera {% endblock %}
+{%block content %}
+    <div class="contenido">
+        <form class="sbm_form" method="post" autocomplete="off">
+            {% csrf_token %}
+            {{ form }}
+            <button class="sbm_btn" type="submit">
+                Subir Remera</button>
+        </form>
+    </div>
+{% endblock %}

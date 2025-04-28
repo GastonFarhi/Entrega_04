@@ -1,0 +1,17 @@
+{% extends 'A_Main/index.html' %}
+{% block title %}| Remeras {% endblock %}
+{%block content %}
+    <div class="contenido">
+        <ul class="principal">
+            <h1 class="titulo">
+                <a href="{% url 'contenido:remera_nueva' %}">
+                    Remeras
+                </a>
+            </h1>
+            {% for shirt_list in lista_remeras %}
+                <li class="lista">
+                    {{shirt_list.disenio}} - {{shirt_list.talle}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

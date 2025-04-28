@@ -1,0 +1,21 @@
+{% extends 'A_Main/index.html' %}
+{% block title %}| Discos {% endblock %}
+{%block content %}
+    <div class="contenido">
+        <form class="disco__buscar_form" method="GET" action="{% url 'contenido:resultado' %}">
+            <input class="disco_input" type="text" name="q" placeholder="Buscar por artista" autocomplete="off">
+            <button class="disco_buscar_btn" type="submit">Buscar</button>
+        </form>
+        <ul class="principal">
+            <h1 class="titulo">
+                <a href="{% url 'contenido:nuevo_disco' %}">
+                    Música
+                </a>
+            </h1>
+            {% for cd_list in lista_discos %}
+                <li class="lista">
+                    {{cd_list.nombre}} - {{cd_list.artista}} - {{cd_list.year}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
