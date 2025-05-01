@@ -2,12 +2,12 @@
 {% block title %}| Discos {% endblock %}
 {%block content %}
     <div class="contenido">
-        <form class="disco__buscar_form" method="GET" action="{% url 'contenido:resultado' %}">
+        <form class="disco_buscar_form" method="GET" action="{% url 'contenido:resultado' %}">
             <input class="disco_input" type="text" name="q" placeholder="Buscar por artista" autocomplete="off">
             <button class="disco_buscar_btn" type="submit">Buscar</button>
         </form>
         <ul class="principal">
-            <h1 class="titulo">
+            <h1>
                 <a href="{% url 'contenido:nuevo_disco' %}">
                     Música
                 </a>

@@ -3,7 +3,7 @@
 {%block content %}
     <div class="contenido">
         <ul class="principal">
-            <h1 class="titulo">
+            <h1>
                 <a href="{% url 'contenido:remera_nueva' %}">
                     Remeras
                 </a>
@@ -11,7 +11,7 @@
             {% for shirt_list in lista_remeras %}
                 <li class="lista">
                     <a href="{% url 'contenido:detalle_remera' shirt_list.id %}">
-                        {{shirt_list.disenio}}
+                        {{shirt_list.disenio}} - {{shirt_list.color}}
                     </a>
                 </li>
             {% endfor %}

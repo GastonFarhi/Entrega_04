@@ -4,11 +4,11 @@
         <form class="inter_form" action="{% url 'contenido:modificar_remera' remera.id %}" method="POST">
             {% csrf_token %}
             {{form}}
-            <input type="submit" value="Modificar">
+            <input type="submit" value="Modificar" class="modificar_btn">
         </form>
         <form class="inter_form" action="{% url 'contenido:eliminar_remera' remera.id %}" method="POST">
             {% csrf_token %}
-            <input type="submit" value="Borrar">
+            <input type="submit" value="Borrar" class="eliminar_btn">
         </form>
     </div>
 {% endblock content %}

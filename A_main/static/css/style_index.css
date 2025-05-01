@@ -32,7 +32,7 @@ header {
     width: 100%;
     padding: 0px 0px;
     height: 80px;
-    background-color: rgba(0, 0, 0, .2);
+    background-color: rgba(0, 0, 0, .5);
     cursor: default;
 }
 .profile_img_vp {
@@ -125,7 +125,7 @@ main > * {
     margin-top: 3px;
 }
 /* =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*= */
-.disco__buscar_form {
+.disco_buscar_form {
     position: flex;
     text-align: center; 
 }
@@ -161,15 +161,49 @@ main > * {
 /* =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*= */
 .contenido {
     color: white;
-    min-height: 100px;
-    max-height: 600px;
+    min-height: 200px;
+    max-height: 800px;
     width: 500px;
     overflow: auto;
+    text-align: center;
+}
+.contenido .modificar_btn,
+.contenido .eliminar_btn {
+    display: inline-block;
+}
+.contenido .modificar_btn {
+    float: inline-start;
+}
+.contenido .eliminar_btn {
+    margin-top: -20px;
+    float: inline-end;
 }
 .principal {
     text-align: center;
     color: white;
     list-style-type: none; 
+}
+.btn_div_modi {
+    display: block;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-bottom: 2px solid white;
+    cursor: default;
+    margin-top: 20px;
+    padding: 20px 10px;
+}
+.sbm_btn {
+    font-size: large;
+    font-weight: bold;
+    background: transparent;
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: default;
+    margin-top: 10px;
+    padding: 20px 10px;
+    border-bottom: 2px solid white;
 }
 .dropdown {
     position: relative;

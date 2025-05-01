@@ -5,6 +5,8 @@
         <p>Talle: {{remera.talle}}</p>
         <p>Diseño: {{remera.disenio}}</p>
         <p>Color: {{remera.color}}</p>
-        <a href="{% url 'contenido:modificar_remera' remera.id %}">Modificar</a>
+        <a class="btn_div_modi" href="{% url 'contenido:modificar_remera' remera.id %}">Modificar</a>
     </div>
 {% endblock content %}
+
+
