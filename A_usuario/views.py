@@ -53,3 +53,6 @@ class VistaDatosPerfil(LoginRequiredMixin, DetailView):
     model = InfoExtra
     template_name = "A_usuario/ver_perfil.html"
     context_object_name = "usuario"
+
+    def get_object(self, queryset=None):
+        return InfoExtra.objects.get(user=self.request.user)

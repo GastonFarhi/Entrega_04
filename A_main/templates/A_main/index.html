@@ -5,40 +5,46 @@
     <title>Pag_404 {% block title %} {% endblock title %} </title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style_index.css' %}" />
+    <link rel="icon" type="image/icon" href="{% static 'css/images/favi_01.png' %}">
 </head>
 <body>
     <header>
+        <div class="dropdown">
+            <button class="drop_btn">
+                <img class="img_drop_btn" src="{% static 'css/images/content.png' %}" alt="cont" />
+            </button>
+            <div class="producto_drop">
+                <a href="{% url 'contenido:disco' %}">Discos</a>
+                <a href="{% url 'contenido:libro' %}">Libros</a>
+                <a href="{% url 'contenido:remera' %}">Remeras</a>
+                <a style="white-space: nowrap;" href="{% url 'main:about' %}">About Me</a>
+                {% if request.user.username == "admin" %}
+                    <a href="{% url 'admin:index' %}">
+                        Administración
+                    </a>
+                {% endif %}
+            </div>
+        </div>
         <h1 class="titulo_pag">
             <a href="{% url 'main:index' %}">Hello World!</a>
         </h1>
-        <nav class="producto">
-            <a href="{% url 'contenido:disco' %}">Discos</a>
-            <a href="{% url 'contenido:libro' %}">Libros</a>
-            <a href="{% url 'contenido:remera' %}">Remeras</a>
-        </nav>
         {% if request.user.is_authenticated %}
             <nav class="cuenta">
-                <a class="perfil_inicio" href="{% url 'user:ver_perfil' user.pk %}">
-                    {% if request.user.inforextra.avatar %}
+                <a class="perfil_inicio" href="{% url 'user:ver_perfil' %}">
+                    {% if request.user.infoextra.avatar %}
                         <img class="profile_img" src={{ request.user.infoextra.avatar.url }} alt="avatar">
                     {% else %}
-                        <img class="profile_img" src="media/avatars/profile_01.png" alt="avatar">
+                        <img class="profile_img" src="{% get_media_prefix %}avatars/profile_01.png" alt="qq">
                     {% endif %}
-                    
+
                     {% if request.user.username != "admin" %}
                         ¡Hola, {{ request.user.first_name.capitalize }}!
                     {% else %}
                         ¡Hola, Admin!
                     {% endif %}
-
-                    {% if request.user.username == "admin" %}
-                        <a href="{% url 'admin:index' %}">
-                            Administración
-                        </a>
-                    {% endif %}
                 </a>
             </nav>
-        {% else %}    
+        {% else %}
             <nav class="cuenta">
                 <a href="{% url 'user:login' %}">LogIn</a>
                 <a href="{% url 'user:registro' %}">Registrarse</a>

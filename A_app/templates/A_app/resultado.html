@@ -3,27 +3,20 @@
 {%block content %}
     <div class="contenido">
         {% if resultados %}
-            <ul style="text-align: center">
-            <h2
-                style="
-                text-align: center;
-                padding-top: 50px;
-                padding-bottom: 10px;
-                text-decoration-line: underline;
-                "
-            >
+            <ul>
+            <h2>
                 Resultados de Busqueda
             </h2>
-                <ul>
+                <ul style="list-style-type: none;">
                     {% for variable in resultados %}
                     <li>{{ variable.nombre }} - {{ variable.year }}</li>
                     {% endfor %}
                 </ul>
             </ul>
         {% else %}
-            <div class="contenido">
-                <h2 style="text-align: center; margin-top: 50px">Resultados de Busqueda</h2>
-                <h3 style="text-align: center; margin-top: 50px">Sin resultados.</h3>
+            <div>
+                <h2>Resultados de Busqueda</h2>
+                <h3>Sin resultados.</h3>
             </div>
         {% endif %}
     </div>

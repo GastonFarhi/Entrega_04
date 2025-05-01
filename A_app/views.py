@@ -115,10 +115,11 @@ class VistaEliminarLibro(LoginRequiredMixin, DeleteView):
 class VistaModificarRemera(LoginRequiredMixin, UpdateView):
     model = Remera
     template_name = "A_app/modificar_remera.html"
-    fields = ['talle', 'disenio']
+    fields = ['talle', 'disenio', "color"]
     labels = {
         "talle": "Talle:",
-        "disenio": "Diseño:"
+        "disenio": "Diseño:",
+        "color": "Color:",
     }
     success_url = reverse_lazy("contenido:remera")
     login_url = "user:login"

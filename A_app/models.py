@@ -23,6 +23,7 @@ class Libro(models.Model):
 class Remera(models.Model):
     talle = models.CharField(max_length=6)
     disenio = models.CharField(max_length=100)
+    color = models.CharField(max_length=50, default="")
 
     def __str__(self):
         return f"{self.disenio} - {self.talle}"

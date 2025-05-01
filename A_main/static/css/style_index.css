@@ -5,15 +5,16 @@
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 body {
-    background: url("images/fondo_03.jpg");
+    background: url("images/fondo_05.jpg");
     background-repeat: no-repeat;
-    background-size: cover auto;
-    background-position: center top;
+    background-size: cover;
+    background-position: center;
     /*background-color: pink;*/
 }
 footer {
+    font-weight: bold;
     cursor: default;
-    color: white;
+    color: black;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -22,14 +23,23 @@ footer {
     background-color: rgba(0, 0, 0, .2);
 }
 header {
+    display: flex;
+    align-items: center;
     position: fixed;
+    justify-content: space-between;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 10px 10px;
+    padding: 0px 0px;
+    height: 80px;
     background-color: rgba(0, 0, 0, .2);
-    align-items: center;
     cursor: default;
+}
+.profile_img_vp {
+    vertical-align: middle;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
 }
 .profile_img {
     vertical-align: middle;
@@ -105,10 +115,14 @@ main > * {
     font-size: large;
 }
 .perfil_inicio {
-    font-size: large;
+    font-size: 1em;
 }
 .naviga {
     display: inline-flex;
+    align-items: center;
+}
+.naviga a {
+    margin-top: 3px;
 }
 /* =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*= */
 .disco__buscar_form {
@@ -156,4 +170,34 @@ main > * {
     text-align: center;
     color: white;
     list-style-type: none; 
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.drop_btn {
+    background-color: transparent;
+    border: none;
+    cursor: default;
+    width: 5px;
+    height: 5px;
+}
+.producto_drop {
+    display: none;
+    position: absolute;
+    background: black;
+    top: 99px;
+}
+.producto_drop a {
+    padding: 12px 16px;
+    color: rosybrown;
+    text-decoration: none;
+    display: block;
+}
+.producto_drop a:hover {
+    background-color: red;
+}
+.dropdown:hover .producto_drop {
+    display: block;
+    text-align: center;
 }
