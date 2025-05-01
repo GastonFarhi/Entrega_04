@@ -1,14 +1,12 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm
 from django.contrib.auth.models import User
 
 
 class FormularioRegistro(UserCreationForm):
     first_name = forms.CharField(label="Nombre", widget=forms.TimeInput(attrs={"autocomplete": "off"}))
     last_name = forms.CharField(label="Apellido", widget=forms.TimeInput(attrs={"autocomplete": "off"}))
-
     date_joined = forms.DateField(widget=forms.DateInput(attrs={"type": "date"}), label="Fecha de Nacimiento")
-
     username = forms.CharField(label="Nombre de Usuario", widget=forms.TimeInput(attrs={"autocomplete": "off"}))
     email = forms.EmailField(widget=forms.TimeInput(attrs={"autocomplete": "off"}))
     password1 = forms.CharField(label="Contraseña", widget=forms.PasswordInput)
@@ -31,3 +29,8 @@ class FormularioEdicionPerfil(UserChangeForm):
     class Meta:
         model = User
         fields = ["email", "first_name", "last_name", "avatar"]
+
+
+class FormularioLogin(AuthenticationForm):
+    username = forms.CharField(label="Usuario", widget=forms.TextInput(attrs={"autocomplete": "off"}))
+    password = forms.CharField(label="Contraseña", widget=forms.PasswordInput(attrs={"autocomplete": "off"}))
