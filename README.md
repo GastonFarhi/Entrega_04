@@ -1,4 +1,7 @@
 # Entrega_04
+/// Aclaración ///
+
+En cada apartado (Discos, Libros, Remeras), el titulo es el link que lleva al formulario para agregar datos a la base de datos.
 
 1. Repositorio, entorno virtual, instalación Django.
 2. Crear Aplicaciones y agregarlas al Settings.py.
