@@ -1,0 +1,13 @@
+{% extends "A_main/index.html" %}
+{% block content %}
+    <div class="menu_prod_opciones">
+        <p>¿Qué desea hacer?</p>
+        <ul>
+            <li><a href="{% url 'contenido:libro_nuevo' %}">Agregar un Libro</a></li>
+            <li><a href="{% url 'contenido:libro_r_autor' %}">Buscar por Autor</a></li>
+            <li><a href="{% url 'contenido:libro_r_titulo' %}">Buscar por Título</a></li>
+            <li><a href="{% url 'contenido:libro_r_anio' %}">Buscar por Año</a></li>
+            <li><a href="{% url 'contenido:libro' %}">Volver a Libros</a></li>
+        </ul>
+    </div>
+{% endblock content %}

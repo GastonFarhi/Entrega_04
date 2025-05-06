@@ -4,7 +4,7 @@
     <div class="contenido">
         <ul class="principal">
             <h1>
-                <a href="{% url 'contenido:libro_nuevo' %}">
+                <a href="{% url 'contenido:menu_libro' %}">
                     Libros
                 </a>
             </h1>
@@ -13,6 +13,10 @@
                     <a href="{% url 'contenido:detalle_libro' libro_list.id %}">
                         {{libro_list.titulo}} - {{libro_list.autor}}
                     </a>
+                </li>
+            {% empty %}   
+                <li class="lista">
+                    No hay items aún.
                 </li>
             {% endfor %}
         </ul>

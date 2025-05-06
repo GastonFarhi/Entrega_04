@@ -1,0 +1,28 @@
+{% extends 'A_Main/index.html' %}
+{% block title %}| Libro | Autor {% endblock %}
+{%block content %}
+    <div class="contenido">
+        <form class="disco_buscar_form" method="GET" action="{% url 'contenido:libro_r_autor' %}">
+            <input class="disco_input" type="text" name="q" placeholder="Buscar por autor" autocomplete="off">
+            <button class="disco_buscar_btn" type="submit">Buscar</button>
+        </form>
+        <h2>Resultados de Busqueda</h2>
+        {% if resultados_libro_autor %}
+            <h3>{{ autor_libro.title }}</h3>
+                {% for variable in resultados_libro_autor %}
+                    <ul style="list-style-type: none;">
+                        <li>
+                            <a href="{% url 'contenido:detalle_libro' variable.id %}" style="color: white;">
+                                {{ variable.titulo }} - {{ variable.year }}
+                            </a>
+                        </li>
+                    </ul>
+                {% endfor %}
+        {% else %}
+            <div>
+                <h3>Sin resultados.</h3>
+            </div>
+        {% endif %}
+        <a href="{% url 'contenido:menu_libro' %}">Volver</a>
+    </div>
+{% endblock %}

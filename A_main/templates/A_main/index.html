@@ -18,7 +18,7 @@
                 <a href="{% url 'contenido:libro' %}">Libros</a>
                 <a href="{% url 'contenido:remera' %}">Remeras</a>
                 <a style="white-space: nowrap;" href="{% url 'main:about' %}">About Me</a>
-                {% if request.user.username == "admin" %}
+                {% if request.user.is_staff %}
                     <a href="{% url 'admin:index' %}">
                         Administración
                     </a>
@@ -37,10 +37,10 @@
                         <img class="profile_img" src="{% get_media_prefix %}avatars/profile_01.png" alt="qq">
                     {% endif %}
 
-                    {% if request.user.username != "admin" %}
-                        ¡Hola, {{ request.user.first_name.capitalize }}!
-                    {% else %}
+                    {% if request.user.is_superuser %}
                         ¡Hola, Admin!
+                    {% else %}
+                        ¡Hola, {{ request.user.first_name.capitalize }}!
                     {% endif %}
                 </a>
             </nav>

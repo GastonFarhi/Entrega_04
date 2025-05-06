@@ -1,0 +1,28 @@
+{% extends 'A_Main/index.html' %}
+{% block title %}| Disco | Año {% endblock %}
+{%block content %}
+    <div class="contenido">
+        <form class="disco_buscar_form" method="GET" action="{% url 'contenido:disco_r_anio' %}">
+            <input class="disco_input" type="text" name="q" placeholder="Buscar por Año" autocomplete="off">
+            <button class="disco_buscar_btn" type="submit">Buscar</button>
+        </form>
+        <h2>Resultados de Busqueda</h2>
+        {% if resultados_disco_anio %}
+            <h3>{{año_lanzamiento}}</h3>
+                {% for variable in resultados_disco_anio %}
+                    <ul style="list-style-type: none;">
+                        <li>
+                            <a href="{% url 'contenido:detalle_disco' variable.id %}" style="color: white;">
+                                {{ variable.artista }} - {{ variable.nombre }}
+                            </a>
+                        </li>
+                    </ul>
+                {% endfor %}
+        {% else %}
+            <div>
+                <h3>Sin resultados.</h3>
+            </div>
+        {% endif %}
+        <a href="{% url 'contenido:menu_disco' %}">Volver</a>
+    </div>
+{% endblock %}

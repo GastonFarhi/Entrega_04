@@ -1,0 +1,14 @@
+{% extends "A_main/index.html" %}
+{% block title %}| Discos | Menu {% endblock %}
+{% block content %}
+    <div class="menu_prod_opciones">
+        <p>¿Qué desea hacer?</p>
+        <ul>
+            <li><a href="{% url 'contenido:nuevo_disco' %}">Agregar un Disco</a></li>
+            <li><a href="{% url 'contenido:disco_r_artista' %}">Buscar por Artista</a></li>
+            <li><a href="{% url 'contenido:disco_r_titulo' %}">Buscar por Título</a></li>
+            <li><a href="{% url 'contenido:disco_r_anio' %}">Buscar por Año</a></li>
+            <li><a href="{% url 'contenido:disco' %}">Volver a Discos</a></li>
+        </ul>
+    </div>
+{% endblock content %}

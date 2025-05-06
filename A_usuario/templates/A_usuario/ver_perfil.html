@@ -10,7 +10,7 @@
         <p>Email: {{usuario.user.email}} </p>
         <p>Usuario: {{usuario.user.username}} </p>
         <nav class="naviga">
-            <form action={% url 'user:logout' %} method="post"> 
+            <form action={% url 'user:logout' %} method="post">
                 {% csrf_token %}
                 <input class="btn_logout" type="submit" value="LogOut">
             </form>

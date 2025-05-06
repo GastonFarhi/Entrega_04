@@ -1,0 +1,13 @@
+{% extends "A_main/index.html" %}
+{% block content %}
+    <div class="menu_prod_opciones">
+        <p>¿Qué desea hacer?</p>
+        <ul>
+            <li><a href="{% url 'contenido:remera_nueva' %}">Agregar una Remera</a></li>
+            <li><a href="{% url 'contenido:remera_r_talle' %}">Buscar por Talle</a></li>
+            <li><a href="{% url 'contenido:remera_r_disenio' %}">Buscar por Diseño</a></li>
+            <li><a href="{% url 'contenido:remera_r_color' %}">Buscar por Color</a></li>
+            <li><a href="{% url 'contenido:remera' %}">Volver a Remeras</a></li>
+        </ul>
+    </div>
+{% endblock content %}

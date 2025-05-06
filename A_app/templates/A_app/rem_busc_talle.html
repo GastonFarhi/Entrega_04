@@ -1,0 +1,28 @@
+{% extends 'A_Main/index.html' %}
+{% block title %}| Remera | Talle {% endblock %}
+{%block content %}
+    <div class="contenido">
+        <form class="disco_buscar_form" method="GET" action="{% url 'contenido:remera_r_talle' %}">
+            <input class="disco_input" type="text" name="q" placeholder="Buscar por Talle" autocomplete="off">
+            <button class="disco_buscar_btn" type="submit">Buscar</button>
+        </form>
+        <h2>Resultados de Busqueda</h2>
+        {% if resultados_remera_talle %}
+            <h3>{{remera_talle}}</h3>
+                {% for variable in resultados_remera_talle %}
+                    <ul style="list-style-type: none;">
+                        <li>
+                            <a href="{% url 'contenido:detalle_remera' variable.id %}" style="color: white;">
+                                {{ variable.disenio }} - {{ variable.color }}
+                            </a>
+                        </li>
+                    </ul>
+                {% endfor %}
+        {% else %}
+            <div>
+                <h3>Sin resultados.</h3>
+            </div>
+        {% endif %}
+        <a href="{% url 'contenido:menu_remera' %}">Volver</a>
+    </div>
+{% endblock %}

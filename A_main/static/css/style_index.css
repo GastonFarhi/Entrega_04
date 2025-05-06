@@ -4,6 +4,9 @@
     box-sizing: border-box;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+input::placeholder {
+    color: white;
+}
 body {
     background: url("images/fondo_05.jpg");
     background-repeat: no-repeat;
@@ -67,6 +70,9 @@ a {
     text-decoration: none;
     user-select: none;
     color: rosybrown;
+}
+.lista a {
+    color: white;
 }
 main {
     margin-top: 60px;
@@ -161,12 +167,27 @@ main > * {
 /* =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*= */
 .contenido {
     color: white;
-    min-height: 200px;
-    max-height: 800px;
+    height: 600px;
     width: 500px;
     overflow: auto;
     text-align: center;
 }
+
+    /* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+   
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5); 
+}
+  
+    /* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5); 
+}
+  
 .contenido .modificar_btn,
 .contenido .eliminar_btn {
     display: inline-block;
@@ -234,4 +255,22 @@ main > * {
 .dropdown:hover .producto_drop {
     display: block;
     text-align: center;
+}
+.menu_prod_opciones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 500px;
+    cursor: default;
+    user-select: none;
+}
+.menu_prod_opciones p {
+    color: white;
+}
+.menu_prod_opciones ul {
+    list-style-type: none;
+}
+.menu_prod_opciones a {
+    color: burlywood;
 }

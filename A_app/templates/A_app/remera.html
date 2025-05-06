@@ -4,7 +4,7 @@
     <div class="contenido">
         <ul class="principal">
             <h1>
-                <a href="{% url 'contenido:remera_nueva' %}">
+                <a href="{% url 'contenido:menu_remera' %}">
                     Remeras
                 </a>
             </h1>
@@ -13,6 +13,10 @@
                     <a href="{% url 'contenido:detalle_remera' shirt_list.id %}">
                         {{shirt_list.disenio}} - {{shirt_list.color}}
                     </a>
+                </li>
+            {% empty %}   
+                <li class="lista">
+                    No hay items aún.
                 </li>
             {% endfor %}
         </ul>
