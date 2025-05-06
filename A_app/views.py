@@ -8,17 +8,17 @@ from .forms import *
 
 # Create your views here.
 def vista_disco(request):
-    lista_discos = Disco.objects.all()
+    lista_discos = Disco.objects.all().order_by("nombre")
     return render(request, "A_app/disco.html", {"lista_discos": lista_discos})
 
 
 def vista_remera(request):
-    lista_remeras = Remera.objects.all()
+    lista_remeras = Remera.objects.all().order_by("disenio")
     return render(request, "A_app/remera.html", {"lista_remeras": lista_remeras})
 
 
 def vista_libro(request):
-    lista_libros = Libro.objects.all()
+    lista_libros = Libro.objects.all().order_by("titulo")
     return render(request, "A_app/libro.html", {"lista_libros": lista_libros})
 
 
@@ -82,7 +82,7 @@ class BusquedaDiscoArtista(ListView):
     def get_queryset(self):
         buscar = self.request.GET.get("q", "")
         if buscar:
-            return Disco.objects.filter(artista__icontains=buscar)
+            return Disco.objects.filter(artista__icontains=buscar).order_by("nombre")
         return Disco.objects.none()
 
     def get_context_data(self, **kwargs):
@@ -118,7 +118,7 @@ class BusquedaDiscoAnio(ListView):
     def get_queryset(self):
         buscar = self.request.GET.get("q", "")
         if buscar:
-            return Disco.objects.filter(year__icontains=buscar)
+            return Disco.objects.filter(year__icontains=buscar).order_by("artista")
         return Disco.objects.none()
 
     def get_context_data(self, **kwargs):
@@ -159,7 +159,7 @@ class BusquedaLibroAutor(ListView):
     def get_queryset(self):
         buscar = self.request.GET.get("q", "")
         if buscar:
-            return Libro.objects.filter(autor__icontains=buscar)
+            return Libro.objects.filter(autor__icontains=buscar).order_by("titulo")
         return Libro.objects.none()
 
     def get_context_data(self, **kwargs):
@@ -177,7 +177,7 @@ class BusquedaLibroAnio(ListView):
     def get_queryset(self):
         buscar = self.request.GET.get("q", "")
         if buscar:
-            return Libro.objects.filter(year__icontains=buscar)
+            return Libro.objects.filter(year__icontains=buscar).order_by("autor")
         return Libro.objects.none()
 
     def get_context_data(self, **kwargs):
