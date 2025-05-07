@@ -143,7 +143,7 @@ main > * {
     width: 300px;
     text-align: center;
     border: none;
-    background: rgba(100, 100, 100, .2);
+    background: transparent;
     border-bottom: 2px solid white;
     outline: none;
 }
@@ -160,30 +160,25 @@ main > * {
     border-bottom: 2px solid white;
     border-right: 2px solid white;
     cursor: default;
-    background-color: rgba(100, 100, 100, .2);
-    padding: 8px 15px;
+    background: transparent;
+    padding: 7px 15px;
 }
 
 /* =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*= */
 .contenido {
     color: white;
-    height: 600px;
+    height: 550px;
     width: 500px;
     overflow: auto;
     text-align: center;
 }
 
-    /* width */
 ::-webkit-scrollbar {
     width: 10px;
 }
-   
-  /* Handle */
 ::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.5); 
 }
-  
-    /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.5); 
 }
@@ -271,6 +266,10 @@ main > * {
 .menu_prod_opciones ul {
     list-style-type: none;
 }
-.menu_prod_opciones a {
+.menu_prod_opciones a{
     color: burlywood;
+}
+.btn_resul_volver {
+    color: burlywood;
+    font-weight: bolder;
 }
