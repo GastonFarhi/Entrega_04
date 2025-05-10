@@ -1,10 +1,11 @@
 {% extends "A_main/index.html" %}
 {% block content %}
-    <div class="contenido">
-        <h1>{{ disco }}</h1>
+<div class="contenido">
+    <h3 class="h_prod">{{ disco }}</h3>
         <p>Título: {{disco.nombre}}</p>
         <p>Artista: {{disco.artista}}</p>
         <p>Año: {{disco.year}}</p>
-        <a class="btn_div_modi" href="{% url 'contenido:modificar_disco' disco.id %}">Modificar</a>
-    </div>
+    <a class="btn_div_modi" href="{% url 'contenido:modificar_disco' disco.id %}">Modificar</a>
+    <a class="btn_div_volver" href="{% url 'contenido:disco' %}">Volver</a>
+</div>
 {% endblock content %}

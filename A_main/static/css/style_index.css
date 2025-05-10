@@ -1,4 +1,5 @@
 * {
+    cursor: default;
     margin: 0;
     padding: 10px;
     box-sizing: border-box;
@@ -8,7 +9,7 @@ input::placeholder {
     color: white;
 }
 body {
-    background: url("images/fondo_05.jpg");
+    background: url("images/fondo_01.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -16,8 +17,7 @@ body {
 }
 footer {
     font-weight: bold;
-    cursor: default;
-    color: black;
+    color: white;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -36,18 +36,17 @@ header {
     padding: 0px 0px;
     height: 80px;
     background-color: rgba(0, 0, 0, .5);
-    cursor: default;
 }
 .profile_img_vp {
     vertical-align: middle;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
 }
 .profile_img {
     vertical-align: middle;
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
 }
 .titulo_pag, .producto, .cuenta {
@@ -66,10 +65,10 @@ nav {
     float: inline-start;
 }
 a {
-    cursor: default;
     text-decoration: none;
     user-select: none;
-    color: rosybrown;
+    /*color: rosybrown;*/
+    color: teal;
 }
 .lista a {
     color: white;
@@ -92,12 +91,10 @@ main > * {
 .inter_usuario {
     text-align: center;
     color: white;
-    cursor: default;
 }
 .inter_form input {
     color: white;
     background: transparent;
-    cursor: default;
     text-align: center;
     border: none;
     border-bottom: 2px solid white;
@@ -108,7 +105,6 @@ main > * {
     border: none;
     color: white;
     background: transparent;
-    cursor: default;
     margin: 10px;
     font-size: larger;
 }
@@ -116,7 +112,6 @@ main > * {
     outline: none;
     border: none;
     background: transparent;
-    cursor: default;
     color: white;
     font-size: large;
 }
@@ -136,7 +131,6 @@ main > * {
     text-align: center; 
 }
 .disco_input {
-    cursor: default;
     color: white;
     font-weight: bolder;
     padding: 8px;
@@ -159,13 +153,13 @@ main > * {
     border: none;
     border-bottom: 2px solid white;
     border-right: 2px solid white;
-    cursor: default;
     background: transparent;
     padding: 8px 15px;
 }
 
 /* =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*=  =*= */
 .contenido {
+    position: relative;
     color: white;
     height: 550px;
     width: 500px;
@@ -177,37 +171,40 @@ main > * {
     width: 10px;
 }
 ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.5); 
+    background: rgba(255, 255, 255, 0.1); 
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.5); 
-}
-  
-.contenido .modificar_btn,
-.contenido .eliminar_btn {
-    display: inline-block;
-}
-.contenido .modificar_btn {
-    float: inline-start;
-}
-.contenido .eliminar_btn {
-    margin-top: -20px;
-    float: inline-end;
+    background: rgba(255, 255, 255, 0.3); 
 }
 .principal {
     text-align: center;
     color: white;
     list-style-type: none; 
 }
-.btn_div_modi {
-    display: block;
+.h_prod {
+    padding: 20px 0 30px 0;
+    color: skyblue;
+}
+.btn_div_modi, 
+.btn_div_volver,
+.modificar_btn,
+.eliminar_btn {
+    position: absolute;
     color: white;
     text-decoration: none;
     border: none;
     border-bottom: 2px solid white;
-    cursor: default;
-    margin-top: 20px;
-    padding: 20px 10px;
+    padding: 15px 10px;
+}
+.btn_div_modi,
+.modificar_btn {  
+    bottom: 40px;
+    right: 100px;
+}
+.btn_div_volver,
+.eliminar_btn {
+    bottom: 40px;
+    left: 100px;
 }
 .sbm_btn {
     font-size: large;
@@ -216,7 +213,6 @@ main > * {
     color: white;
     text-decoration: none;
     border: none;
-    cursor: default;
     margin-top: 10px;
     padding: 20px 10px;
     border-bottom: 2px solid white;
@@ -228,7 +224,6 @@ main > * {
 .drop_btn {
     background-color: transparent;
     border: none;
-    cursor: default;
     width: 5px;
     height: 5px;
 }
@@ -240,12 +235,13 @@ main > * {
 }
 .producto_drop a {
     padding: 12px 16px;
-    color: rosybrown;
+    color: teal;
     text-decoration: none;
     display: block;
 }
 .producto_drop a:hover {
-    background-color: red;
+    background-color: navy;
+    color: olivedrab;
 }
 .dropdown:hover .producto_drop {
     display: block;
@@ -257,7 +253,6 @@ main > * {
     align-items: center;
     height: 400px;
     width: 500px;
-    cursor: default;
     user-select: none;
 }
 .menu_prod_opciones p {

@@ -1,10 +1,11 @@
 {% extends "A_main/index.html" %}
 {% block content %}
     <div class="contenido">
-        <h1>{{ libro }}</h1>
+        <h3 class="h_prod">{{ libro }}</h3>
         <p>Título: {{libro.titulo}}</p>
         <p>Autor: {{libro.autor}}</p>
         <p>Año: {{libro.year}}</p>
         <a class="btn_div_modi" href="{% url 'contenido:modificar_libro' libro.id %}">Modificar</a>
+        <a class="btn_div_volver" href="{% url 'contenido:libro' %}">Volver</a>
     </div>
 {% endblock content %}
